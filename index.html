@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
-      // Runtime shim to prevent "process is not defined" errors in the browser environment
+      // Global shim for process.env to support libraries that check for it
       window.process = { env: { NODE_ENV: 'production' } };
     </script>
     <style>
@@ -38,7 +38,7 @@
 </head>
 <body>
     <div id="root"></div>
-    <!-- Absolute path ensures Vite finds the entry point correctly on all deployment sub-paths -->
-    <script type="module" src="/index.tsx"></script>
+    <!-- Entry point for the Vite-managed React application. Relative path ensures compatibility. -->
+    <script type="module" src="index.tsx"></script>
 </body>
 </html>
