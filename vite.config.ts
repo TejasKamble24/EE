@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   define: {
-    // These literals are replaced during the build process.
+    // Vite handles string replacement during the build process
     'process.env.API_KEY': JSON.stringify(process.env.API_KEY || ''),
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production'),
     'global': 'window'
@@ -11,12 +11,7 @@ export default defineConfig({
     target: 'esnext',
     outDir: 'dist',
     emptyOutDir: true,
-    sourcemap: false,
-    rollupOptions: {
-      input: {
-        main: './index.html'
-      }
-    }
+    sourcemap: false
   },
   server: {
     port: 3000,

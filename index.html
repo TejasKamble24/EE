@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
+      // Shim for process.env to support libraries that check for it
       window.process = { env: { NODE_ENV: 'production' } };
     </script>
     <style>
@@ -24,7 +25,7 @@
             flex-direction: column;
         }
         #root:empty::before {
-            content: "Loading EduElevate...";
+            content: "Initializing EduElevate...";
             display: flex;
             align-items: center;
             justify-content: center;
@@ -48,6 +49,7 @@
 </head>
 <body>
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
+    <!-- Vite entry point -->
+    <script type="module" src="./index.tsx"></script>
 </body>
 </html>
