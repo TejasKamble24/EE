@@ -93,13 +93,14 @@ const App: React.FC = () => {
     }
   };
 
-  // AI Advice Handler
+  // AI Advice Handler - Fixed TS2345 error
   const handleAiAdvice = async () => {
     if (!aiInput.trim()) return;
     setIsAiLoading(true);
     setAiResponse("");
     const advice = await getTeachingAdvice(aiInput);
-    setAiResponse(advice);
+    // Fixed: added fallback to ensure string type matches useState requirement
+    setAiResponse(advice ?? "I'm sorry, I couldn't generate advice at this time.");
     setIsAiLoading(false);
   };
 
@@ -335,7 +336,6 @@ const App: React.FC = () => {
     </div>
   );
 
-  // Fix: Implemented renderDashboard
   const renderDashboard = () => (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
       <div className="bg-white rounded-[2.5rem] p-8 sm:p-12 shadow-sm border border-slate-100 mb-12 flex flex-col sm:flex-row items-center gap-8">
@@ -413,7 +413,6 @@ const App: React.FC = () => {
     </div>
   );
 
-  // Fix: Implemented renderPlayer
   const renderPlayer = () => {
     if (!selectedCourse || !activeLesson) return null;
     return (
@@ -487,7 +486,6 @@ const App: React.FC = () => {
     );
   };
 
-  // Fix: Implemented renderCommunity
   const renderCommunity = () => (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
       <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-12">
@@ -537,7 +535,6 @@ const App: React.FC = () => {
     </div>
   );
 
-  // Fix: Implemented renderProfile
   const renderProfile = () => (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-24">
       <div className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-100">
