@@ -21,7 +21,6 @@ const App: React.FC = () => {
   const [pinInput, setPinInput] = useState('');
   const [pinError, setPinError] = useState(false);
 
-  // Authentication Mock
   const handleLogin = () => {
     setIsLoggedIn(true);
     setUser({
@@ -104,6 +103,7 @@ const App: React.FC = () => {
       <button 
         onClick={() => {
             setShowPinModal(false);
+            setPinTarget(null);
             setCurrentPage('portal');
         }}
         className="flex items-center gap-2 text-slate-500 hover:text-emerald-600 font-bold transition group py-2"
