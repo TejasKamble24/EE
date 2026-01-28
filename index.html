@@ -7,7 +7,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
-      // Global shim for process.env to support libraries that check for it
+      // Shim for process.env to support libraries that expect it in a browser context.
+      // Vite's 'define' config will replace specific instances, but this is a safety net.
       window.process = { env: { NODE_ENV: 'production' } };
     </script>
     <style>
@@ -15,6 +16,7 @@
             font-family: 'Outfit', sans-serif;
             background-color: #f8fafc;
             margin: 0;
+            padding: 0;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
@@ -22,6 +24,16 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+        }
+        /* Ensure the root is visible */
+        #root:empty::before {
+            content: "Initializing EduElevate...";
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #10b981;
+            font-weight: 600;
         }
     </style>
 <script type="importmap">
@@ -38,7 +50,6 @@
 </head>
 <body>
     <div id="root"></div>
-    <!-- Entry point for the Vite-managed React application. Relative path ensures compatibility. -->
-    <script type="module" src="index.tsx"></script>
+    <script type="module" src="./index.tsx"></script>
 </body>
 </html>
