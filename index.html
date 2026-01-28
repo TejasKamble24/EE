@@ -2,13 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>EduElevate - Professional Learning for Teachers</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
-      // Shim for process.env to support libraries that expect it in a browser context.
-      // Vite's 'define' config will replace specific instances, but this is a safety net.
       window.process = { env: { NODE_ENV: 'production' } };
     </script>
     <style>
@@ -18,22 +16,22 @@
             margin: 0;
             padding: 0;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
         }
         #root {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
-        /* Ensure the root is visible */
         #root:empty::before {
-            content: "Initializing EduElevate...";
+            content: "Loading EduElevate...";
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100vh;
-            color: #10b981;
+            color: #059669;
             font-weight: 600;
+            font-size: 1.1rem;
         }
     </style>
 <script type="importmap">
@@ -50,6 +48,6 @@
 </head>
 <body>
     <div id="root"></div>
-    <script type="module" src="./index.tsx"></script>
+    <script type="module" src="/index.tsx"></script>
 </body>
 </html>
