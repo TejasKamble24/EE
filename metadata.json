@@ -1,0 +1,8 @@
+{
+  "name": "EduElevate",
+  "description": "A standalone professional development platform designed exclusively for teachers to enhance their skills through practical courses, peer learning, and certifications.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
