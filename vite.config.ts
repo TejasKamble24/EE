@@ -3,14 +3,14 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   define: {
-    // Provide the API_KEY at build time from the environment
-    'process.env.API_KEY': JSON.stringify(process.env.API_KEY || ''),
-    // Use a valid JS literal for process.env shim to satisfy esbuild
-    'process.env': '{}'
+    // Vite will replace 'process.env.API_KEY' with the actual value during build.
+    // Ensure this is set in your Vercel Project Environment Variables.
+    'process.env.API_KEY': JSON.stringify(process.env.API_KEY || '')
   },
   build: {
     target: 'esnext',
-    outDir: 'dist'
+    outDir: 'dist',
+    sourcemap: false
   },
   server: {
     port: 3000

@@ -8,13 +8,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
-      // Browser-side shim for process to prevent immediate crashes in 3rd party libs
+      // Minimal shim to prevent crashes in the browser for libraries checking process.env
       window.process = window.process || { env: {} };
     </script>
     <style>
         body {
             font-family: 'Outfit', sans-serif;
             background-color: #f8fafc;
+            margin: 0;
         }
         .prose-calm {
             color: #334155;
@@ -35,7 +36,7 @@
 </head>
 <body>
     <div id="root"></div>
-    <!-- Vite entry point -->
+    <!-- Vite will handle this entry point and bundle all dependencies -->
     <script type="module" src="/index.tsx"></script>
 </body>
 </html>
