@@ -2,7 +2,7 @@
 import { GoogleGenAI } from "@google/genai";
 
 // Initialize the Gemini API client following the provided guidelines.
-// Always use the process.env.API_KEY directly.
+// Always use the process.env.API_KEY directly as a named parameter.
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 export const getTeachingAdvice = async (userPrompt: string) => {
